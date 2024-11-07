@@ -16,19 +16,26 @@ class CotizacionViewModel : ViewModel(){
     val repositorio = MockRepositorio()
     var estado by mutableStateOf<CotizacionEstado>(CotizacionEstado.Vacio)
 
+
     fun ejecutar (intencion: CotizacionIntencion){
         when(intencion){
             CotizacionIntencion.cargarCotizacion -> cargarCotizacion()
+            CotizacionIntencion.limpiar -> limpiarCotizacion()
         }
     }
 
     private fun cargarCotizacion(){
         estado = CotizacionEstado.Cargando
+
         viewModelScope.launch {
 
             val dolarBlue = repositorio.getDolarBlue()
             estado = CotizacionEstado.Ok(dolarBlue)
         }
+    }
+    private fun limpiarCotizacion(){
+        estado = CotizacionEstado.Vacio
+
     }
 }
 

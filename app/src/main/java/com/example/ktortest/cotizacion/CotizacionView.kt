@@ -24,8 +24,9 @@ fun  CotizacionView (
             when(estado){
                 is CotizacionEstado.Cargando -> Cargando()
                 is CotizacionEstado.Error -> Error()
-                is CotizacionEstado.Ok -> Cotizacion(dolarBlue = 109)
-                is CotizacionEstado.Vacio -> TODO()
+                is CotizacionEstado.Ok -> Cotizacion(dolarBlue = estado.dolarBlue)
+                is CotizacionEstado.Vacio -> Text(text = "Limpiado")
+
             }
             Spacer(modifier = Modifier.height(20.dp))
 
@@ -33,6 +34,11 @@ fun  CotizacionView (
                 ejecutar(CotizacionIntencion.cargarCotizacion)
             }) {
                 Text(text = "Refrescar")
+            }
+            Button(onClick = {
+                ejecutar(CotizacionIntencion.limpiar)
+            }) {
+                Text(text = "Limpiar")
             }
         }
 
