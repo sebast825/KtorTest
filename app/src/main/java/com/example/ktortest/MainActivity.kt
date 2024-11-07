@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.appmoviles_parcial.cotizacion.CotizacionPage
+import com.example.ktortest.presentacion.ClimaPage
 import com.example.ktortest.ui.theme.KtorTestTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             KtorTestTheme {
-              CotizacionPage()
+              ClimaPage()
                 }
             }
         }

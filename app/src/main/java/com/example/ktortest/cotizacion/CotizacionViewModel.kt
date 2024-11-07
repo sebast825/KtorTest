@@ -29,8 +29,8 @@ class CotizacionViewModel : ViewModel(){
 
         viewModelScope.launch {
 
-            val dolarBlue = repositorio.getDolarBlue()
-            estado = CotizacionEstado.Ok(dolarBlue)
+            //val dolarBlue = repositorio.getDolarBlue()
+            estado = CotizacionEstado.Ok(88)
         }
     }
     private fun limpiarCotizacion(){

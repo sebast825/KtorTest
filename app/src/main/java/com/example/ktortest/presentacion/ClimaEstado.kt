@@ -1,5 +1,7 @@
 package com.example.ktortest.presentacion
 
+import com.example.ktortest.repositorio.modelos.Clima
+
 sealed class ClimaEstado {
     data object Vacio: ClimaEstado()
     data object Cargando: ClimaEstado()
@@ -8,14 +10,3 @@ sealed class ClimaEstado {
     data class Error(val mensaje: String): ClimaEstado()
 }
 
-
-//es parte del Modelo
-data class Clima(
-  val temperatura: Double,
-  val sensacionTermica: Double,
-  val estado: String,
-  val humedad: Double,
-  val velocidadDelViento: Double,
-  val latitud: Double,
-  val longitud: Double
-)
